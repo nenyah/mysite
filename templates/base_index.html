@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>A Awesome Web !</title>
+		<link rel="stylesheet" href="{% static 'css/semantic.css' %}">
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/semantic.js' %}"></script>
+		<script src="{% static 'js/exporting.js' %}"></script>
+		<script src="{% static 'js/highcharts.js' %}"></script>
+		<script src="{% static 'js/highcharts-more.js' %}"></script>
+	</head>
+	<body>
+
+		<!-- 侧边栏 -->
+		<div class="ui left visible thin sidebar inverted vertical menu">
+			<div class="header item">
+				<i class="red big pinterest icon"></i>
+			</div>
+			<a class="item" href="../index">
+				Document
+				<i class="browser icon"></i>
+			</a>
+			<a class="item" href="../chart">
+				Charts
+				<i class="bar chart icon"></i>
+			</a>
+			<div class="item">
+				Others
+				<i class="idea icon"></i>
+			</div>
+		</div>
+
+		<!-- 主内容 -->
+		<div class="pusher">
+			<div class="ui menu">
+				<div class="header item">
+					Menu
+					<i class="content icon"></i>
+				</div>
+				<div class="item">About us</div>
+				<div class="item">Location</div>
+				<div class="item">Others</div>
+			</div>
+
+            {% block grid %}{% endblock %}
+
+		</div>
+
+		<!-- 侧边栏效果 -->
+		<script>
+			$('.header.item').click(function () {
+				$('.ui.sidebar').sidebar('toggle');
+			});
+		</script>
+        {% block chartjs %}{% endblock %}
+
+	</body>
+</html>
